@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "dependencies": {
     "apollo-server": "^2.24.0",
@@ -12,6 +12,17 @@
     "graphql": "^15.5.0",
     "mongoose": "^5.12.7"
   },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.13.14",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.5",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-mocha": "^8.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-security": "^1.4.0",
+    "nodemon": "^2.0.7"
+  },
+  "main": "app.js",
   "repository": "https://github.com/Ha-Young/memona-backend.git",
   "author": "Ha-Young <https://github.com/ha-young>",
   "license": "MIT"
