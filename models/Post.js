@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
+const { pointSchema } = require("./GeoJsonSubSchemas");
+
 const postSchema = new Schema({
   author: {
     type: mongoose.Schema.Types.ObjectId,
@@ -16,15 +18,8 @@ const postSchema = new Schema({
     required: true,
   },
   location: {
-    type: {
-      type: String,
-      enum: ["Point"],
-      required: true,
-    },
-    coordinates: {
-      type: [Number],
-      required: true,
-    },
+    type: pointSchema,
+    required: true,
   },
   isAnonymous: {
     type: Boolean,
