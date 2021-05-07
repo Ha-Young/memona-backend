@@ -17,6 +17,7 @@ module.exports = async function createConnection() {
   console.log("MongoDB connecting...");
 
   const connection = await mongoose.connect(MONGO_ENDPOINT, {
+    dbName: "memona",
     autoIndex: STAGE === "development",
     useNewUrlParser: true,
     useUnifiedTopology: true,
