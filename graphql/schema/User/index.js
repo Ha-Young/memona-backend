@@ -7,7 +7,7 @@ const typeDefs = gql`
     username: String!
     nickname: String
     imageUrl: String
-    # posts: [Post]
+    posts: [Post]
     friends: [User]
   }
 `;
