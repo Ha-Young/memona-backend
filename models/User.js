@@ -13,7 +13,7 @@ const userSchema = new Schema({
   nickname: {
     type: String,
   },
-  avatar: {
+  imageUrl: {
     type: String,
   },
   posts: {
