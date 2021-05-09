@@ -1,4 +1,3 @@
-const User = require("../../../models/User");
 const { verifyGoogleToken } = require("../../../auth");
 const { LOGIN_TYPE } = require("../../../constants");
 const { signJWTToken } = require("../../../utils/jwtToken");
@@ -22,11 +21,11 @@ const resolvers = {
     },
   },
   Mutation: {
-    login: (parent, args) => loginMutation(parent, args),
+    login: (_, args, { dataSources }) => loginMutation(args, dataSources.users),
   },
 };
 
-async function loginMutation(parent, { type, token, email, password }) {
+async function loginMutation({ type, token, email, password }, userDataSource) {
   let loginUser;
 
   switch (type) {
@@ -42,10 +41,10 @@ async function loginMutation(parent, { type, token, email, password }) {
     }
   }
 
-  const found = await User.findOne({ email: loginUser.email });
+  const found = await userDataSource.getUser({ email: loginUser.email });
 
   if (!found) {
-    const newUser = await User.create({
+    const newUser = await userDataSource.createUser({
       ...loginUser,
     });
 
