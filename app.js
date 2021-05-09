@@ -3,24 +3,13 @@ const { ApolloServer } = require("apollo-server");
 const typeDefs = require("./graphql/schema");
 const resolvers = require("./graphql/resolvers");
 const dataSources = require("./graphql/datasource");
-const { verifyJWTToken } = require("./utils/jwtToken");
-const extractToken = require("./utils/extractToken");
+const context = require("./graphql/context");
 
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
   dataSources,
-  context: ({ req }) => {
-    const token = extractToken(req);
-
-    if (!token) {
-      return { auth: undefined };
-    }
-
-    const auth = verifyJWTToken(token);
-
-    return { auth };
-  },
+  context,
 });
 
 module.exports = apolloServer;
