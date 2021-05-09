@@ -9,6 +9,7 @@
   "dependencies": {
     "apollo-server": "^2.24.0",
     "dotenv": "^9.0.0",
+    "google-auth-library": "^7.0.4",
     "graphql": "^15.5.0",
     "mongoose": "^5.12.7"
   },
