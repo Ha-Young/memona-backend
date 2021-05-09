@@ -7,6 +7,7 @@
     "dev": "nodemon index.js"
   },
   "dependencies": {
+    "apollo-datasource-mongodb": "^0.4.0",
     "apollo-server": "^2.24.0",
     "dotenv": "^9.0.0",
     "google-auth-library": "^7.0.4",
