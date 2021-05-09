@@ -19,17 +19,17 @@ const userSchema = new Schema({
   posts: {
     type: [{
       type: Schema.Types.ObjectId,
-      ref: "Post",
+      ref: "Posts",
     }],
     default: [],
   },
   friends: {
     type: [{
       type: Schema.Types.ObjectId,
-      ref: "User",
+      ref: "Users",
     }],
     default: [],
   },
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("Users", userSchema);

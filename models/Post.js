@@ -7,7 +7,7 @@ const postSchema = new Schema({
   author: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
-    ref: "User",
+    ref: "Users",
   },
   content: {
     type: String,
@@ -28,22 +28,22 @@ const postSchema = new Schema({
   area: {
     type: Schema.Types.ObjectId,
     required: true,
-    ref: "Area",
+    ref: "Areas",
   },
   comments: {
     type: [{
       type: Schema.Types.ObjectId,
-      ref: "Comment",
+      ref: "Comments",
     }],
     default: [],
   },
   like: {
     type: [{
       type: Schema.Types.ObjectId,
-      ref: "Like",
+      ref: "Likes",
     }],
     default: [],
   },
 });
 
-module.exports = mongoose.model("Post", postSchema);
+module.exports = mongoose.model("Posts", postSchema);
