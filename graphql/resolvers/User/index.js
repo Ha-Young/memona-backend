@@ -1,6 +1,7 @@
 const { verifyGoogleToken } = require("../../../auth");
 const { LOGIN_TYPE } = require("../../../constants");
 const User = require("../../../models/User");
+const { signJWTToken } = require("../../../utils/jwtToken");
 
 const resolvers = {
   Query: {
@@ -17,13 +18,11 @@ const resolvers = {
   },
   Mutation: {
     login: async (parent, { type, token, email, password }) => {
-      console.log("login mutation!", type, token);
       let loginUser;
 
       switch (type) {
         case LOGIN_TYPE.GOOGLE: {
           loginUser = await verifyGoogleToken(token);
-          console.log("google user", loginUser);
           break;
         }
         default: {
@@ -33,6 +32,20 @@ const resolvers = {
           };
         }
       }
+
+      const found = await User.findOne({ email: loginUser.email });
+
+      if (!found) {
+        const newUser = await User.create({
+          ...loginUser,
+        });
+
+        console.log("newUser", newUser);
+      }
+
+      const jwtToken = await signJWTToken({ email: loginUser.email });
+
+      return jwtToken;
     },
   },
 };
