@@ -1,11 +1,15 @@
-const { verifyGoogleToken } = require("../../../auth");
+
+const { verifyGoogleToken } = require("../../../utils/socialLoginAuth");
 const { LOGIN_TYPE } = require("../../../constants");
 const { signJWTToken } = require("../../../utils/jwtToken");
+const authCheck = require("../authCheck");
 
 const resolvers = {
   Query: {
-    users: async (_, __, { dataSources }) => {
+    users: async (_, __, { dataSources, auth }) => {
       try {
+        authCheck(auth);
+
         const user = await dataSources.users.getUsers();
 
         return user;
@@ -41,17 +45,21 @@ async function loginMutation({ type, token, email, password }, userDataSource) {
     }
   }
 
-  const found = await userDataSource.getUser({ email: loginUser.email });
+  let user = await userDataSource.getUser({ email: loginUser.email });
 
-  if (!found) {
+  if (!user) {
     const newUser = await userDataSource.createUser({
       ...loginUser,
     });
 
     console.log("newUser", newUser);
+
+    user = newUser;
   }
 
-  const jwtToken = await signJWTToken({ email: loginUser.email });
+  console.log("user", user);
+
+  const jwtToken = await signJWTToken({ _id: user._id });
 
   return jwtToken;
 }
