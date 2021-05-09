@@ -8,7 +8,7 @@ const typeDefs = gql`
     nickname: String
     imageUrl: String
     # posts: [Post]
-    # friends: [User]
+    friends: [User]
   }
 `;
 
