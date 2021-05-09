@@ -5,7 +5,7 @@ const { signJWTToken } = require("../../../utils/jwtToken");
 
 const resolvers = {
   Query: {
-    async users(parent, args) {
+    users: async (parent, args) => {
       try {
         const user = await User.find();
         console.log("user", user);
@@ -16,38 +16,45 @@ const resolvers = {
       }
     },
   },
-  Mutation: {
-    login: async (parent, { type, token, email, password }) => {
-      let loginUser;
-
-      switch (type) {
-        case LOGIN_TYPE.GOOGLE: {
-          loginUser = await verifyGoogleToken(token);
-          break;
-        }
-        default: {
-          loginUser = {
-            email,
-            password,
-          };
-        }
-      }
-
-      const found = await User.findOne({ email: loginUser.email });
-
-      if (!found) {
-        const newUser = await User.create({
-          ...loginUser,
-        });
-
-        console.log("newUser", newUser);
-      }
-
-      const jwtToken = await signJWTToken({ email: loginUser.email });
-
-      return jwtToken;
+  User: {
+    friends: async ({ friends }) => {
+      return await User.find({ "_id": { $in: friends } });
     },
   },
+  Mutation: {
+    login: (parent, args) => loginMutation(parent, args),
+  },
 };
+
+async function loginMutation(parent, { type, token, email, password }) {
+  let loginUser;
+
+  switch (type) {
+    case LOGIN_TYPE.GOOGLE: {
+      loginUser = await verifyGoogleToken(token);
+      break;
+    }
+    default: {
+      loginUser = {
+        email,
+        password,
+      };
+    }
+  }
+
+  const found = await User.findOne({ email: loginUser.email });
+
+  if (!found) {
+    const newUser = await User.create({
+      ...loginUser,
+    });
+
+    console.log("newUser", newUser);
+  }
+
+  const jwtToken = await signJWTToken({ email: loginUser.email });
+
+  return jwtToken;
+}
 
 module.exports = resolvers;
