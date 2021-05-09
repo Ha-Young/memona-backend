@@ -1,7 +1,9 @@
-const { gql } = require('apollo-server');
-const typeDefs = gql`
-  type Query {
-    ping: String
-  }
-`;
+const querys = require("./Query");
+const user = require("./User");
+
+const typeDefs = [
+  querys,
+  user
+];
+
 module.exports = typeDefs;

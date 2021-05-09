@@ -7,8 +7,8 @@ const typeDefs = gql`
     username: String!
     nickname: String
     avatar: String
-    posts: [Post]
-    friends: [User]
+    # posts: [Post]
+    # friends: [User]
   }
 `;
 
