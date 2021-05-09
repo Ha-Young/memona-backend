@@ -2,8 +2,7 @@ const { ApolloServer } = require("apollo-server");
 
 const typeDefs = require("./graphql/schema");
 const resolvers = require("./graphql/resolvers");
-const Users = require("./graphql/datasource/Users");
-const UserModel = require("./models/User");
+const dataSources = require("./graphql/datasource");
 
 console.log("typeDefs", typeDefs);
 console.log("resolvers", resolvers);
@@ -11,9 +10,7 @@ console.log("resolvers", resolvers);
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
-  dataSources: () => ({
-    users: new Users(UserModel),
-  }),
+  dataSources,
 });
 
 module.exports = apolloServer;
