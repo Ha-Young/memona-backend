@@ -13,7 +13,7 @@ const postSchema = new Schema({
     type: String,
     default: "",
   },
-  imgUrl: {
+  postImageUrl: {
     type: String,
     required: true,
   },
@@ -37,7 +37,7 @@ const postSchema = new Schema({
     }],
     default: [],
   },
-  like: {
+  likes: {
     type: [{
       type: Schema.Types.ObjectId,
       ref: "Likes",
