@@ -5,9 +5,9 @@ const { signJWTToken } = require("../../../utils/jwtToken");
 
 const resolvers = {
   Query: {
-    users: async (parent, args) => {
+    users: async (_, __, { dataSources }) => {
       try {
-        const user = await User.find();
+        const user = await dataSources.users.getUsers();
         console.log("user", user);
         return user;
       } catch (err) {
