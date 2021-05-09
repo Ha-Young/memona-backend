@@ -26,20 +26,20 @@ const postSchema = new Schema({
     default: false,
   },
   area: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     required: true,
     ref: "Area",
   },
   comments: {
     type: [{
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "Comment",
     }],
     default: [],
   },
   like: {
     type: [{
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "Like",
     }],
     default: [],

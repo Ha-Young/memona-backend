@@ -18,14 +18,14 @@ const userSchema = new Schema({
   },
   posts: {
     type: [{
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "Post",
     }],
     default: [],
   },
   friends: {
     type: [{
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "User",
     }],
     default: [],
