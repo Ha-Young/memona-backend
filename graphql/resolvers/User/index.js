@@ -1,6 +1,6 @@
+const User = require("../../../models/User");
 const { verifyGoogleToken } = require("../../../auth");
 const { LOGIN_TYPE } = require("../../../constants");
-const User = require("../../../models/User");
 const { signJWTToken } = require("../../../utils/jwtToken");
 
 const resolvers = {
@@ -8,7 +8,7 @@ const resolvers = {
     users: async (_, __, { dataSources }) => {
       try {
         const user = await dataSources.users.getUsers();
-        console.log("user", user);
+
         return user;
       } catch (err) {
         console.log(err);
@@ -17,8 +17,8 @@ const resolvers = {
     },
   },
   User: {
-    friends: async ({ friends }) => {
-      return await User.find({ "_id": { $in: friends } });
+    friends: async ({ friends }, __, { dataSources }) => {
+      return await dataSources.users.getUsersByIds(friends);
     },
   },
   Mutation: {
