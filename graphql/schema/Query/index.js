@@ -5,6 +5,8 @@ const typeDefs = gql`
     ping: String
     users: [User]
     loginUser: User
+    areas: [Area]
+    myArea(lat: Float, lng: Float): Area
   }
 `;
 
