@@ -2,7 +2,7 @@ const { gql } = require("apollo-server");
 
 const typeDefs = gql`
   type Area {
-    _id: ID!
+    _id: ID
     name: String!
     location: PolygonGeoJson!
   }

@@ -9,11 +9,13 @@ class KakaoAPI extends RESTDataSource {
   }
 
   willSendRequest(request) {
+    console.log("willSendRequest", KAKAO_REST_API_KEY);
     request.headers.set("Authorization", `KakaoAK ${KAKAO_REST_API_KEY}`);
   }
 
   getRegions({ lng, lat }) {
-    return this.get(`/v2/local/geo/coord2regioncode..json?x=${lng}&y=${lat}`);
+    console.log("getRegions", lng, lat);
+    return this.get(`/v2/local/geo/coord2regioncode.json?x=${lng}&y=${lat}`);
   }
 }
 

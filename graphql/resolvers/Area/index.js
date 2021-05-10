@@ -19,7 +19,24 @@ async function myAreaQuery({ lat, lng }, dataSources) {
     },
   };
 
-  const area = await dataSources.areas.getAreaByQuery(geoIntersectQuery);
+  let area = await dataSources.areas.getAreaByQuery(geoIntersectQuery);
+
+  if (!area) {
+    const response = await dataSources.kakaoAPI.getRegions({ lat, lng });
+
+    if (!response || !response.documents || response.documents.length === 0) {
+      return null;
+    }
+
+    const region = response.documents[0];
+    const name = region.region_3depth_name || region.region_2depth_name || region.region_1depth_name;
+    const location = {
+      type: "Point",
+      coordinates: [region.x, region.y],
+    };
+
+    area = { name, location };
+  }
 
   return area;
 }
