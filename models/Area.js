@@ -14,4 +14,6 @@ const areaSchema = new Schema({
   },
 });
 
+areaSchema.index({ location: "2dsphere" });
+
 module.exports = mongoose.model("Areas", areaSchema);
