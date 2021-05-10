@@ -11,16 +11,17 @@ const resolvers = {
 
 async function myAreaQuery({ lat, lng }, dataSources) {
   const geoIntersectQuery = {
-    locations: {
-      $geoIntersects: {
+    location: {
+      $near: {
         $geometry: { type: "Point", coordinates: [lng, lat] },
+        $maxDistance: 0,
       },
     },
   };
 
   const area = await dataSources.areas.getAreaByQuery(geoIntersectQuery);
 
-  console.log("area", area);
+  return area;
 }
 
 module.exports = resolvers;
