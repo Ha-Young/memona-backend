@@ -4,14 +4,14 @@ class Users extends MongoDataSource {
   getUsers() {
     return this.model.find();
   }
-  getUser(userId) {
-    return this.findOneById(userId);
+  getUser(id) {
+    return this.findOneById(id);
   }
   getUserByQuery(query) {
     return this.model.find(query);
   }
-  getUsersByIds(friendIds) {
-    return this.findManyByIds(friendIds);
+  getUsersByIds(ids) {
+    return this.findManyByIds(ids);
   }
   createUser(user) {
     return this.model.create(user);
