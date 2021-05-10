@@ -18,6 +18,13 @@ const resolvers = {
         throw err;
       }
     },
+    loginUser: async (_, __, { dataSources, auth }) => {
+      authCheck(auth);
+
+      const user = await dataSources.users.getUser(auth._id);
+
+      return user;
+    },
   },
   User: {
     friends: async ({ friends }, __, { dataSources }) => {
@@ -46,18 +53,15 @@ async function loginMutation({ type, token, email, password }, userDataSource) {
   }
 
   let user = await userDataSource.getUserByQuery({ email: loginUser.email });
+  user = user[0];
 
   if (!user) {
     const newUser = await userDataSource.createUser({
       ...loginUser,
     });
 
-    console.log("newUser", newUser);
-
     user = newUser;
   }
-
-  console.log("user", user);
 
   const jwtToken = await signJWTToken({ _id: user._id });
 

@@ -4,6 +4,7 @@ const typeDefs = gql`
   type Query {
     ping: String
     users: [User]
+    loginUser: User
   }
 `;
 
