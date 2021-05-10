@@ -45,7 +45,7 @@ async function loginMutation({ type, token, email, password }, userDataSource) {
     }
   }
 
-  let user = await userDataSource.getUser({ email: loginUser.email });
+  let user = await userDataSource.getUserByQuery({ email: loginUser.email });
 
   if (!user) {
     const newUser = await userDataSource.createUser({
