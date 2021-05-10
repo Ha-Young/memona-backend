@@ -1,4 +1,5 @@
 const user = require("./User");
+const area = require("./Area");
 
 const ping = {
   Query: {
@@ -8,7 +9,8 @@ const ping = {
 
 const resolvers = [
   ping,
-  user
+  user,
+  area
 ];
 
 module.exports = resolvers;
