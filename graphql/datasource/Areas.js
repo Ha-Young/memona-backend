@@ -9,7 +9,7 @@ class Areas extends MongoDataSource {
     return this.findOneById(id);
   }
   getAreaByQuery(query) {
-    return this.model.find(query);
+    return this.model.findOne(query);
   }
   getAreasByIds(ids) {
     return this.findManyByIds(ids);
