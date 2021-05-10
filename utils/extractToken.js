@@ -1,8 +1,6 @@
 module.exports = function extractToken(request) {
   const authToken = request.headers.authorization;
 
-  console.log("authToken", authToken);
-
   if (!authToken || authToken.split(" ")[0] !== "Bearer") {
     return null;
   }
