@@ -8,7 +8,7 @@ const typeDefs = gql`
     postImageUrl: String
     location: PointGeoJson
     isAnonymous: Boolean
-    area: Area
+    area: String
     # comments: [Comment]
     # likes: [Like]
   }
