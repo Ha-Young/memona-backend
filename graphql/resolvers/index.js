@@ -1,4 +1,5 @@
 const user = require("./User");
+const post = require("./Post");
 const area = require("./Area");
 
 const ping = {
@@ -10,6 +11,7 @@ const ping = {
 const resolvers = [
   ping,
   user,
+  post,
   area
 ];
 
