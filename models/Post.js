@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
-const { Schema } = mongoose;
+const aggregatePaginate = require("mongoose-aggregate-paginate-v2");
 
 const { pointSchema } = require("./GeoJsonSubSchemas");
+
+const { Schema } = mongoose;
 
 const postSchema = new Schema({
   author: {
@@ -50,5 +52,6 @@ const postSchema = new Schema({
 }, { timestamps: true });
 
 postSchema.index({ season: 1, area: 1 });
+postSchema.plugin(aggregatePaginate);
 
 module.exports = mongoose.model("Posts", postSchema);
