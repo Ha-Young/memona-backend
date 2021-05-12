@@ -26,9 +26,12 @@ const postSchema = new Schema({
     default: false,
   },
   area: {
-    type: Schema.Types.ObjectId,
+    type: String,
     required: true,
-    ref: "Areas",
+  },
+  season: {
+    type: String,
+    required: true,
   },
   comments: {
     type: [{
@@ -45,5 +48,7 @@ const postSchema = new Schema({
     default: [],
   },
 }, { timestamps: true });
+
+postSchema.index({ season: 1, area: 1 });
 
 module.exports = mongoose.model("Posts", postSchema);
