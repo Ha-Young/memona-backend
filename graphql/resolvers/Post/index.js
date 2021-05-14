@@ -11,7 +11,7 @@ const resolvers = {
   },
 };
 
-async function postsQuery({ page, limit, area, season, lat, lng }, dataSources) {
+async function postsQuery({ page, limit, area, season, year, lat, lng }, dataSources) {
   const pagingOption = {
     page,
     limit,
@@ -35,6 +35,10 @@ async function postsQuery({ page, limit, area, season, lat, lng }, dataSources) 
 
   if (season) {
     query.season = season;
+  }
+
+  if (year) {
+    query.year = year;
   }
 
   try {
