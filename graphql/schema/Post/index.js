@@ -15,7 +15,23 @@ const typeDefs = gql`
     # likes: [Like]
   }
 
+  input PostInput {
+    author: ID!
+    content: String
+    postImageFile: Upload!
+    location: PointGeoJsonInput!
+    isAnonymous: Boolean!
+    area: String!
+    season: String!
+    year: String!
+  }
+
   type PointGeoJson {
+    type: String
+    coordinates: [Float]
+  }
+
+  input PointGeoJsonInput {
     type: String
     coordinates: [Float]
   }
