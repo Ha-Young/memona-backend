@@ -1,8 +1,6 @@
 const { gql } = require("apollo-server");
-
 const typeDefs = gql`
-  type PostWithPage implements Pagination{
-    docs: [Post]
+  interface Pagination {
     hasPrevPage: Boolean
     hasNextPage: Boolean
     prevPage: Int
