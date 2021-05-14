@@ -9,6 +9,8 @@ const typeDefs = gql`
     location: PointGeoJson
     isAnonymous: Boolean
     area: String
+    season: String
+    year: String
     # comments: [Comment]
     # likes: [Like]
   }

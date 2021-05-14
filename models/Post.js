@@ -35,6 +35,10 @@ const postSchema = new Schema({
     type: String,
     required: true,
   },
+  year: {
+    type: String,
+    require: true,
+  },
   comments: {
     type: [{
       type: Schema.Types.ObjectId,
@@ -51,7 +55,7 @@ const postSchema = new Schema({
   },
 }, { timestamps: true });
 
-postSchema.index({ season: 1, area: 1 });
+postSchema.index({ season: 1, area: 1, year: 1 });
 postSchema.plugin(aggregatePaginate);
 
 module.exports = mongoose.model("Posts", postSchema);
