@@ -1,3 +1,5 @@
+const myAreaQuery = require("../Area/myAreaQuery");
+
 const resolvers = {
   Query: {
     posts: (_, args, { dataSources }) => postsQuery(args, dataSources),
@@ -9,16 +11,31 @@ const resolvers = {
   },
 };
 
-async function postsQuery({ page, limit, area, season }, dataSources) {
+async function postsQuery({ page, limit, area, season, lat, lng }, dataSources) {
   const pagingOption = {
     page,
     limit,
   };
 
+  let areaName = area;
+
+  if (!areaName && !(lat && lng)) {
+    // todo. error
+    throw new Error("parameter area or (lat, lng) must needed");
+  }
+
+  if (!areaName) {
+    const { name } = await myAreaQuery({ lat, lng }, dataSources);
+    areaName = name;
+  }
+
   const query = {
-    area,
-    season,
+    area: areaName,
   };
+
+  if (season) {
+    query.season = season;
+  }
 
   try {
     const result = await dataSources.posts.getRandomPostsWithPagenation({ pagingOption, query });

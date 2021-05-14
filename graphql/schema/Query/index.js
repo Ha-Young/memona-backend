@@ -5,7 +5,7 @@ const typeDefs = gql`
     ping: String
     users: [User]
     loginUser: User
-    posts(page: Int, limit: Int, area: String, season: String): PostWithPage
+    posts(page: Int, limit: Int, area: String, season: String, lat: Float, lng: Float): PostWithPage
     areas: [Area]
     myArea(lat: Float, lng: Float): Area
   }
