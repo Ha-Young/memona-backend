@@ -29,7 +29,7 @@ function createUploadStream(key, bucketName) {
   };
 }
 
-async function fileUpload({ file, bucketName }) {
+exports.fileUpload = async function fileUpload({ file, bucketName }) {
   const { stream, filename, mimetype, encoding } = await file;
 
   const filePath = filename;
@@ -43,4 +43,4 @@ async function fileUpload({ file, bucketName }) {
   const link = result.Location;
 
   return { filename, mimetype, encoding, url: link };
-}
+};
