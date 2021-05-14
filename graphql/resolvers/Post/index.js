@@ -10,8 +10,6 @@ const resolvers = {
 };
 
 async function postsQuery({ page, limit, area, season }, dataSources) {
-  console.log("posts query");
-
   const pagingOption = {
     page,
     limit,
@@ -28,12 +26,21 @@ async function postsQuery({ page, limit, area, season }, dataSources) {
     console.log(result);
 
     console.log("return", {
-      ...result.docs,
+      docs: result.docs,
+      hasPrevPage: result.hasPrevPage,
       hasNextPage: result.hasNextPage,
+      prevPage: result.prevPage,
+      nextPage: result.nextPage,
     });
 
     // todo. hasNextPage랑 같이 리턴 할 방법을 모색해야됨. (gql Union 쓰면 될듯?)
-    return result.docs;
+    return {
+      docs: result.docs,
+      hasPrevPage: result.hasPrevPage,
+      hasNextPage: result.hasNextPage,
+      prevPage: result.prevPage,
+      nextPage: result.nextPage,
+    };
   } catch (error) {
     console.log(error);
   }
