@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const saveAreaData = require("./json/saveDB");
+const { saveAreas, savePosts } = require("./json/saveDB");
 
 const { MONGO_ENDPOINT, STAGE } = process.env;
 
@@ -30,6 +30,9 @@ module.exports = async function createConnection() {
 
   // await saveAreaData();
   // console.log("complete saving area json datas");
+
+  // await savePosts();
+  // console.log("complete saving post datas");
 
   return connection;
 };
