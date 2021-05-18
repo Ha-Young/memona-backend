@@ -30,16 +30,14 @@ function createUploadStream(key, bucketName) {
 }
 
 exports.fileUpload = async function fileUpload({ file, bucketName }) {
-  const { stream, filename, mimetype, encoding } = await file;
-
+  const { createReadStream, filename, mimetype, encoding } = await file;
+  const stream = createReadStream();
   const filePath = filename;
-
   const uploadStream = createUploadStream(filePath, bucketName);
 
   stream.pipe(uploadStream.writeStream);
 
   const result = await uploadStream.promise;
-
   const link = result.Location;
 
   return { filename, mimetype, encoding, url: link };

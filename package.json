@@ -2,6 +2,9 @@
   "name": "memona-backend",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "12.22.1"
+  },
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"

@@ -28,8 +28,6 @@ exports.savePosts = function savePosts() {
     const season = seasons[Math.floor(Math.random() * seasons.length)];
     const year = years[Math.floor(Math.random() * years.length)];
 
-    console.log(locationIndex, locationMock);
-
     const postMock = {
       author: mongoose.Types.ObjectId("60978fb4597e45176f27c9c1"),
       content: `테스트 목 데이터 입니다.\n${locationMock.name}\n${season}\n${year}`,
