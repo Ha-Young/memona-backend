@@ -18,7 +18,6 @@ const typeDefs = gql`
   input PostInput {
     author: ID!
     content: String
-    postImageFile: Upload!
     location: PointGeoJsonInput!
     isAnonymous: Boolean!
     area: String!

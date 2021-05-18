@@ -11,11 +11,10 @@ const resolvers = {
     },
   },
   Mutation: {
-    createPost: (_, args, { dataSources }) => createPostMutation(args, dataSources),
+    createPost: (_, args, { dataSources }) => {
+      return createPostMutation(args, dataSources);
+    },
   },
 };
-
-
-
 
 module.exports = resolvers;

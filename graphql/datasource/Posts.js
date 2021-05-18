@@ -15,7 +15,7 @@ class Posts extends MongoDataSource {
   }
   getRandomPostsWithPagenation({ query, pagingOption }) {
     // https://docs.mongodb.com/manual/aggregation/#std-label-aggregation-framework
-    const aggregateQuery = this.model.aggregate([{ $match: query }]);
+    const aggregateQuery = this.model.aggregate([{ $match: query }, { $sample: { size: pagingOption.limit } }]);
 
     return this.model.aggregatePaginate(aggregateQuery, pagingOption);
   }

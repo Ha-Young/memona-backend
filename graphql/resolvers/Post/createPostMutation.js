@@ -1,21 +1,17 @@
 const { fileUpload } = require("../../../utils/s3");
 const { AWS_S3_IMAGE_BUCKET_NAME } = process.env;
 
-async function createPostMutation(args, dataSources) {
-  const file = args.postImageFile;
-
-  delete args.postImageFile;
-
+async function createPostMutation({ file, input }, dataSources) {
   const { url } = await fileUpload({ file, bucketName: AWS_S3_IMAGE_BUCKET_NAME });
 
   const post = {
-    ...args,
+    ...input,
     postImageUrl: url,
   };
 
-  const result = dataSources.posts.createPost(post);
+  const result = await dataSources.posts.createPost(post);
 
-  return result.toJson();
+  return result;
 }
 
 module.exports = createPostMutation;
