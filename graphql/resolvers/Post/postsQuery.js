@@ -1,6 +1,6 @@
 const myAreaQuery = require("../Area/myAreaQuery");
 
-async function postsQuery({ page, limit, area, season, year, lat, lng }, dataSources) {
+async function postsQuery({ filter, page, limit, area, season, year, lat, lng }, dataSources) {
   const pagingOption = {
     page,
     limit,
@@ -31,8 +31,8 @@ async function postsQuery({ page, limit, area, season, year, lat, lng }, dataSou
   }
 
   try {
-    const result = await dataSources.posts.getRandomPostsWithPagenation({ pagingOption, query });
-
+    const result = await dataSources.posts.getRandomPostsWithPagenation({ filter, pagingOption, query });
+    console.log(result);
     return {
       docs: result.docs,
       hasPrevPage: result.hasPrevPage,

@@ -2,7 +2,7 @@ const { MongoDataSource } = require("apollo-datasource-mongodb");
 
 class Users extends MongoDataSource {
   getUsers() {
-    return this.model.find();
+    return this.model.find().toArray();
   }
   getUser(id) {
     return this.findOneById(id);
