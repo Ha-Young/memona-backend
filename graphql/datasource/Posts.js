@@ -2,7 +2,7 @@ const { MongoDataSource } = require("apollo-datasource-mongodb");
 
 class Posts extends MongoDataSource {
   getPosts() {
-    return this.model.find();
+    return this.model.find().toArray();
   }
   getPost(id) {
     return this.findOneById(id);
@@ -13,9 +13,16 @@ class Posts extends MongoDataSource {
   getPostsByIds(ids) {
     return this.findManyByIds(ids);
   }
-  getRandomPostsWithPagenation({ query, pagingOption }) {
-    // https://docs.mongodb.com/manual/aggregation/#std-label-aggregation-framework
-    const aggregateQuery = this.model.aggregate([{ $match: query }, { $sample: { size: pagingOption.limit } }]);
+  getRandomPostsWithPagenation({ filter, query, pagingOption }) {
+    const aggregatePipieLine = [{ $match: query }];
+
+    if (filter === "random") {
+      aggregatePipieLine.push({
+        $sample: { size: pagingOption.limit },
+      });
+    }
+
+    const aggregateQuery = this.model.aggregate(aggregatePipieLine);
 
     return this.model.aggregatePaginate(aggregateQuery, pagingOption);
   }
