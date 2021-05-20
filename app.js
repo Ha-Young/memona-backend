@@ -5,8 +5,6 @@ const resolvers = require("./graphql/resolvers");
 const dataSources = require("./graphql/datasource");
 const context = require("./graphql/context");
 
-console.log("deploy success7");
-
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
