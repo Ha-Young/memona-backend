@@ -13,7 +13,7 @@ const apolloServer = new ApolloServer({
   introspection: true,
   playground: true,
   cors: {
-    origin: "https://memona.site",
+    origin: "*",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false,
     optionsSuccessStatus: 204,
