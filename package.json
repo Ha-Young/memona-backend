@@ -14,6 +14,7 @@
     "apollo-datasource-rest": "^0.13.0",
     "apollo-server": "^2.24.0",
     "aws-sdk": "^2.906.0",
+    "cors": "2.8.5",
     "dotenv": "^9.0.0",
     "google-auth-library": "^7.0.4",
     "graphql": "^15.5.0",
