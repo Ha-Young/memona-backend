@@ -5,7 +5,7 @@ const resolvers = require("./graphql/resolvers");
 const dataSources = require("./graphql/datasource");
 const context = require("./graphql/context");
 
-console.log("deploy success6");
+console.log("deploy success7");
 
 const apolloServer = new ApolloServer({
   typeDefs,
@@ -15,10 +15,10 @@ const apolloServer = new ApolloServer({
   introspection: true,
   playground: true,
   cors: {
-    "origin": "*",
-    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-    "preflightContinue": false,
-    "optionsSuccessStatus": 204,
+    origin: "https://memona.site",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
   },
 });
 
