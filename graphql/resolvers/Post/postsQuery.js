@@ -31,7 +31,7 @@ async function postsQuery({ filter, page, limit, area, season, year, lat, lng },
   }
 
   try {
-    const result = await dataSources.posts.getRandomPostsWithPagenation({ filter, pagingOption, query });
+    const result = await dataSources.posts.getAggregatePostsWithPagenation({ filter, pagingOption, query });
     console.log(result);
     return {
       docs: result.docs,

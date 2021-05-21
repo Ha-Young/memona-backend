@@ -13,7 +13,7 @@ class Posts extends MongoDataSource {
   getPostsByIds(ids) {
     return this.findManyByIds(ids);
   }
-  getRandomPostsWithPagenation({ filter, query, pagingOption }) {
+  getAggregatePostsWithPagenation({ filter, query, pagingOption }) {
     const aggregatePipieLine = [{ $match: query }];
 
     if (filter === "random") {
