@@ -1,6 +1,5 @@
-const postsQuery = require("./postsQuery");
-const createPostMutation = require("./createPostMutation");
-const myPostsQuery = require("./myPostsQuery");
+const { postsQuery, myPostsQuery } = require("./querys");
+const { createPostMutation } = require("./mutations");
 
 const resolvers = {
   Query: {
@@ -13,9 +12,7 @@ const resolvers = {
     },
   },
   Mutation: {
-    createPost: (_, args, { dataSources }) => {
-      return createPostMutation(args, dataSources);
-    },
+    createPost: (_, args, { dataSources }) => createPostMutation(args, dataSources),
   },
 };
 

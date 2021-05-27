@@ -1,6 +1,10 @@
+const mongoose = require("mongoose");
+
 const myAreaQuery = require("../Area/myAreaQuery");
 
-async function postsQuery({ filter, page, limit, area, season, year, lat, lng }, dataSources) {
+const ObjectId = mongoose.Types.ObjectId;
+
+exports.postsQuerys = async function postsQuery({ filter, page, limit, area, season, year, lat, lng }, dataSources) {
   const pagingOption = {
     page,
     limit,
@@ -43,6 +47,28 @@ async function postsQuery({ filter, page, limit, area, season, year, lat, lng },
   } catch (error) {
     console.log(error);
   }
-}
+};
 
-module.exports = postsQuery;
+exports.myPostsQuery = async function myPostsQuery({ page, limit }, { dataSources, auth }) {
+  const pagingOption = {
+    page,
+    limit,
+  };
+
+  const query = {
+    author: ObjectId(auth._id),
+  };
+
+  try {
+    const result = await dataSources.posts.getAggregatePostsWithPagenation({ pagingOption, query });
+    return {
+      docs: result.docs,
+      hasPrevPage: result.hasPrevPage,
+      hasNextPage: result.hasNextPage,
+      prevPage: result.prevPage,
+      nextPage: result.nextPage,
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
