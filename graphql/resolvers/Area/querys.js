@@ -1,4 +1,10 @@
-async function myAreaQuery({ lat, lng }, dataSources) {
+exports.getAreasQuery = async function getAreasQuery(dataSources) {
+  const area = await dataSources.areas.getAreas();
+
+  return area;
+};
+
+exports.myAreaQuery = async function myAreaQuery({ lat, lng }, dataSources) {
   const geoIntersectQuery = {
     location: {
       $near: {
@@ -28,6 +34,4 @@ async function myAreaQuery({ lat, lng }, dataSources) {
   }
 
   return area;
-}
-
-module.exports = myAreaQuery;
+};

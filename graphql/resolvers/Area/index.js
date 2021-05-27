@@ -1,12 +1,8 @@
-const myAreaQuery = require("./myAreaQuery");
+const { getAreasQuery, myAreaQuery } = require("./querys");
 
 const resolvers = {
   Query: {
-    areas: async (_, __, { dataSources }) => {
-      const area = await dataSources.areas.getAreas();
-
-      return area;
-    },
+    areas: (_, __, { dataSources }) => getAreasQuery(dataSources), 
     myArea: (_, args, { dataSources }) => myAreaQuery(args, dataSources),
   },
 };
