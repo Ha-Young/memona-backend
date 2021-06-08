@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 
-const myAreaQuery = require("../Area/myAreaQuery");
+const { myAreaQuery } = require("../Area/querys");
 
 const ObjectId = mongoose.Types.ObjectId;
 
-exports.postsQuerys = async function postsQuery({ filter, page, limit, area, season, year, lat, lng }, dataSources) {
+exports.postsQuery = async function postsQuery({ filter, page, limit, area, season, year, lat, lng }, dataSources) {
   const pagingOption = {
     page,
     limit,
