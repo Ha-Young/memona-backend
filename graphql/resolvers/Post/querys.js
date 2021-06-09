@@ -36,7 +36,7 @@ exports.postsQuery = async function postsQuery({ filter, page, limit, area, seas
 
   try {
     const result = await dataSources.posts.getAggregatePostsWithPagenation({ filter, pagingOption, query });
-    console.log(result);
+
     return {
       docs: result.docs,
       hasPrevPage: result.hasPrevPage,
