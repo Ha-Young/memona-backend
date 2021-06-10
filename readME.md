@@ -14,7 +14,7 @@
       + [🚗 Motivation](#-motivation)
       + [🍁 Memona - 내 추억과 기억을 그 위치에 저장하는 SNS](#-memona---내-추억과-기억을-그-위치에-저장하는-sns)
       + [📌 Feature](#-feature)
-        + [🔧 Stack](#-stack)
+      + [🔧 Stack](#-stack)
       + [🎯 Requirements](#-requirements)
       + [💿 Installation](#-installation)
         - [FrontEnd](#frontend)
