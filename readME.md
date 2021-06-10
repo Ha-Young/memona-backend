@@ -1,6 +1,6 @@
 # Memona
 
-<img src="./asset/logo.png" alt="logo" style="zoom:50%;" />
+<center><img src="./asset/logo.png" alt="logo" width="500" /></center>
 
 ## Summary
 
@@ -9,18 +9,49 @@
 - PWA - 앱 다운, 스플레쉬 화면, 오프라인 처리 지원
 - Atomic Design Structure, GraphQL, StoryBook
 - 더 궁금하다면? 👇
+    - [🔗 관련 링크](#-관련-링크)
+    - [💡Introduce Project](#introduce-project)
+      + [🚗 Motivation](#-motivation)
+      + [🍁 Memona - 내 추억과 기억을 그 위치에 저장하는 SNS](#-memona---내-추억과-기억을-그-위치에-저장하는-sns)
+      + [📌 Feature](#-feature)
+        + [🔧 Stack](#-stack)
+      + [🎯 Requirements](#-requirements)
+      + [💿 Installation](#-installation)
+        - [FrontEnd](#frontend)
+        - [BackEnd](#backend)
+  - [🧩 저는 이렇게 개발했습니다.](#-저는-이렇게-개발했습니다)
+    * [1. Atomic Design](#1-atomic-design)
+    * [2. Responsive Development](#2-responsive-development)
+    * [3. 커스터마이징 지역](#3-커스터마이징-지역)
+  - [🚀 도전했던 기술과 어려웠던 점](#-도전했던-기술과-어려웠던-점)
+    * [1. GraphQL](#1-graphql)
+      + [Apollo-Server](#apollo-server)
+      + [Apollo-Client](#apollo-client)
+    * [2. 위치기반](#2-위치기반)
+    * [3. PWA](#3-pwa)
+    * [4. AR](#4-ar)
+  - [🛠 서브 프로젝트](#-서브-프로젝트)
+      + [Apollo Server Standalone Boiler (Apollo Server v2)](#apollo-server-standalone-boiler-apollo-server-v2)
+      + [Apollo Client Standalone Boiler (Apollo Client-React v3)](#apollo-client-standalone-boiler-apollo-client-react-v3)
+      + [GeoJson Polygon Generator](#geojson-polygon-generator)
+  - [🎇 마무리하며...](#-마무리하며)
 
-
+<br>
 
 ## 🔗 관련 링크
 
 - **Deploy Site** : **https://memona.site**
+
 - **Github Repositories**
-  - FrontEnd : **https://github.com/Ha-Young/memona-backend**
-  - BackEnd : **https://github.com/Ha-Young/memona-frontend**
-- **Presentation Link https://www.youtube.com/watch?v=F8OHnevCS30&t=15631s**
 
+  - FrontEnd : **https://github.com/Ha-Young/memona-frontend**
+  - BackEnd : **https://github.com/Ha-Young/memona-backend**
 
+- **Presentation Link https://youtu.be/F8OHnevCS30?t=14015**
+
+  > 최종 프로젝트 발표 영상 Youtube **3:53:36** 부터 시작
+
+<br>
 
 ## 💡Introduce Project
 
@@ -37,7 +68,7 @@
 
 그렇게 `Atomic Design Pattern`, `GraphQL`, `Storybook`, `PWA`, `AR(WebXR)` 등 프론트엔드에서 나름 인정받는 최신 기술 스택들과 동시에 저의 감성이 더해져 **Memona**가 탄생하였습니다.
 
-
+<br>
 
 ### 🍁 Memona - 내 추억과 기억을 그 위치에 저장하는 SNS
 
@@ -49,7 +80,7 @@ Memona의 **Catch Phrase**는 `당신의 추억과 기억을 그 위치에 기�
 
 기본적으로 내가 있는 위치에 대한 글만 보고 쓸 수 있으며 년도와 계절을 설정해 그 때 어떤 추억들이 있는지 볼 수 있습니다.
 
-![시연 영상](./asset/demonstrations.png)
+![시연 영상](./asset/demonstrations.gif)
 
 
 
@@ -77,9 +108,9 @@ Memona의 **Catch Phrase**는 `당신의 추억과 기억을 그 위치에 기�
   - 페인트와 3D Text 색상 변경
 - 내가 올린 추억들을 모아 볼 수 있습니다.
 
+<br>
 
-
-## 🔧 Stack
+### 🔧 Stack
 
 **Front-end**
 
@@ -111,7 +142,7 @@ Memona의 **Catch Phrase**는 `당신의 추억과 기억을 그 위치에 기�
 - AWS-S3
 - Google-auth
 
-
+<br>
 
 ### 🎯 Requirements
 
@@ -119,7 +150,7 @@ Memona의 **Catch Phrase**는 `당신의 추억과 기억을 그 위치에 기�
 - Browser - Chrome, Chrome-Android
 - Node Version - v12.22.1
 
-
+<br>
 
 ### 💿 Installation
 
@@ -141,13 +172,13 @@ REACT_APP_GOOGLE_CLIENT_ID=<YOUR_GOOGLE_CLIENT_ID>
 REACT_APP_GRAPHQL_API_URI=<YOUR_GRAPHQL_SERVER_URI>
 ```
 
-**Guide**
-
-- REACT_APP_GOOGLE_CLIENT_ID: [Goolge API](https://console.cloud.google.com/apis/credentials?folder=&hl=ko&organizationId=&project=memona)의 OAuth 2.0 클라이언트 ID
-
-- REACT_APP_GRAPHQL_API_URI: GraphQL 서버 URI
-
-  > ex) http://localhost:5000
+> **Guide**
+>
+> - REACT_APP_GOOGLE_CLIENT_ID: [Goolge API](https://console.cloud.google.com/apis/credentials?folder=&hl=ko&organizationId=&project=memona)의 OAuth 2.0 클라이언트 ID
+>
+> - REACT_APP_GRAPHQL_API_URI: GraphQL 서버 URI
+>
+>   > ex) http://localhost:5000
 
 
 
@@ -180,35 +211,35 @@ AWS_S3_REGION=<YOUR_S3_REGION>
 AWS_S3_IMAGE_BUCKET_NAME=<YOUR_S3_BUCKET_NAME>
 ```
 
-**Guide**
+>  **Guide**
+>
+> - STAGE: 서버 Stage 설정
+>
+>   > `development` OR ` production`
+>
+> - MONGO_ENDPOINT: MongoDB Cloud Database URL
+>
+>   - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+>
+> - JWT_TOKEN_SECRET: JWT Token을 만드는데 필요한 키 값
+>
+> - GOOGLE_CLIENT_ID: [Goolge API](https://console.cloud.google.com/apis/credentials?folder=&hl=ko&organizationId=&project=memona)의 OAuth 2.0 클라이언트 ID
+>
+> - KAKAO_REST_API_KEY: KAKAO REST API KEY
+>
+>   - [KAKAO Developers](https://developers.kakao.com/)
+>
+> - AWS_ACCESS_KEY: AWS ACCESS KEY
+>
+> - AWS_SECRET_ACCESS_KEY: AWS SECRET ACCESS KEY
+>
+> - AWS_S3_REGION: AWS S3 지역 코드
+>
+>   > ex) ap-northeast-2
+>
+> - AWS_S3_IMAGE_BUCKET_NAME: S3 Bucket 이름
 
-- STAGE: 서버 Stage 설정
-
-  > `development` OR ` production`
-
-- MONGO_ENDPOINT: MongoDB Cloud Database URL
-
-  - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-
-- JWT_TOKEN_SECRET: JWT Token을 만드는데 필요한 키 값
-
-- GOOGLE_CLIENT_ID: [Goolge API](https://console.cloud.google.com/apis/credentials?folder=&hl=ko&organizationId=&project=memona)의 OAuth 2.0 클라이언트 ID
-
-- KAKAO_REST_API_KEY: KAKAO REST API KEY
-
-  - [KAKAO Developers](https://developers.kakao.com/)
-
-- AWS_ACCESS_KEY: AWS ACCESS KEY
-
-- AWS_SECRET_ACCESS_KEY: AWS SECRET ACCESS KEY
-
-- AWS_S3_REGION: AWS S3 지역 코드
-
-  > ex) ap-northeast-2
-
-- AWS_S3_IMAGE_BUCKET_NAME: S3 Bucket 이름
-
-
+<br>
 
 # 🧩 저는 이렇게 개발했습니다.
 
@@ -216,29 +247,29 @@ AWS_S3_IMAGE_BUCKET_NAME=<YOUR_S3_BUCKET_NAME>
 
 - **[generact](https://github.com/diegohaz/generact)와 atomic sample을 활용한 개발**
 
-  **generact**는 새로운 파일을 만들 때 이미 만들어진 폴더구조를 그대로 이름만 바꿔서 복사해주는 CLI 명령어 입니다.
+  **generact**는 새로운 파일을 만들 때 이미 만들어진 폴더구조를 그대로 이름만 바꿔서 복사해주는 CLI 명령어입니다.
 
-  주로 개발을 할 때 비슷한 파일을 복사를 해서 만들 확률이 높은데, 이를 간편하게 cli 명령어로 복사를 하면 더 편하지 않겠냐는 제작자의 생각에 큰 공감을 하기도 했고, `Atomic Design` 구조로 개발을 할 때 도움이 많이 되겠다 생각하였습니다.
+  주로 개발을 할 때 비슷한 파일을 복사해서 만들 확률이 높은데, 이를 간편하게 CLI 명령어로 복사를 하면 더 편하지 않겠냐는 제작자의 생각에 큰 공감을 하기도 했고, `Atomic Design` 구조로 개발을 할 때 도움이 많이 되겠다고 생각하였습니다.
 
-  이유는 이전에 `Atomic Design` 구조로 개발을 했던 연습 프로젝트에서 다양한 Prop을 받고 Option이 많아야 되는 `Atoms` `Mocules` 를 개발할 때 시간소모가 매우 컸고 어려움을 겪었는데, 이 때 느낀점이 누군가가 만들어놓은 잘 만들어진 `Atoms`나 `Mocules` 등을 재사용하면 생산성이나 퀄리티가 더욱 올라갈 거라고 생각하였고 이를 **generact**가 쉽게 해줄 수 있기 때문입니다.
+  이유는 이전에 `Atomic Design` 구조로 개발을 했던 연습 프로젝트에서 다양한 Prop을 받고 Option이 많아야 하는 `Atoms` `Mocules` 를 개발할 때 시간 소모가 매우 컸고 어려움을 겪었는데, 이때 느낀 점이 누군가가 만들어놓은 잘 만들어진 `Atoms`나 `Mocules` 등을 재사용하면 생산성이나 퀄리티가 더욱 올라갈 거로 생각하였고 이를 **generact**가 쉽게 해줄 수 있기 때문입니다.
 
-  방법은 잘 만들어진 `Atomic Design` 샘플 파일들을 가져와서 Sample-Components 폴더에 분류하여 넣어두고, 개발을 진행하다가 필요한 Component가 생기면 필요한 Component와 비슷한 구조를 가지고 있거나 같은 샘플을 **generact로 복사 및 수정하여 개발하였습니다. 
+  방법은 잘 만들어진 `Atomic Design` 샘플 파일들을 가져와서 Sample-Components 폴더에 분류하여 넣어두고, 개발을 진행하다가 필요한 Component가 생기면 필요한 Component와 비슷한 구조로 되어 있거나 같은 샘플을 **generact**로 복사 및 수정하여 개발하였습니다.
 
-  이를 통해 이전에 `Atomic Design`을 개발 할 때보다 <u>생산성과 소스 퀄리티를 올릴 수 있었고</u> 특히 폴더구조가 통째로 복사되기 때문에 내부의 Storybook Code나 Test Code가 함께 복사되어 매우 만족하며 사용하였습니다.
+  이를 통해 이전에 `Atomic Design`을 개발할 때보다 생산성과 소스 퀄리티를 올릴 수 있었고 특히 폴더구조가 통째로 복사되기 때문에 내부의 Storybook Code나 Test Code가 함께 복사되어 매우 만족하며 사용하였습니다.
 
 - **StoryBook 사용**
 
-  Bottom-Up으로 개발을 하는 `Atomic Design`에 개발 중에 완성된 페이지로 전체적인 화면을 보기전에 `Atoms`, `Molecules`, `Organisms` 와 같이 단위별로 컴포넌트의 UI/UX를 미리미리 확인하고 개발 할 수 있는데 큰 도움이 될 것 같아 도입하였습니다.
+  Bottom-Up으로 개발을 하는 `Atomic Design`의 개발 중, 완성된 페이지로 전체적인 화면을 보기 전에 `Atoms`, `Molecules`, `Organisms`와 같이 단위별로 컴포넌트의 UI/UX를 미리미리 확인하고 개발 할 수 있는데 큰 도움이 될 것 같아 도입하였습니다.
 
-  사용하면서 예전 연습 프로젝트에서 `Atomic Design` 을 활용해 개발 할 때 Bottom-Up 작은 단위부터 개발하는 것이 UI개발 상황을 확인하면서 개발하는 것이 불편했는데 이를 작은 단위부터 확인 할 수 있다는 것이 좋았고, 직접 개발페이지로 들어가지않고 확인할 수 있는 점에서 매우 만족스러웠습니다. 
+  사용하면서 예전 연습 프로젝트에서 `Atomic Design`을 활용해 개발할 때 Bottom-Up 작은 단위부터 개발하는 것이 UI 개발 상황을 확인하면서 개발하는 것이 불편했는데 이를 작은 단위부터 확인 할 수 있다는 것이 좋았고, 직접 개발페이지로 들어가지 않고 확인할 수 있는 점에서 매우 만족스러웠습니다.
 
-  `Atomic Design` 구조가 아니라도 `StoryBook`은 개발과 협업에 큰 도움이 될 것 같다는 느낌을 받았습니다.
+  `Atomic Design` 구조가 아니라도 StoryBook은 개발과 협업에 큰 도움이 될 것 같다는 느낌을 받았습니다.
 
-  
+<br>
 
 ## 2. Responsive Development
 
-- [Sizzy](https://sizzy.co/)를 통한 다양한 디바이스 Responsive view 확인
+- **[Sizzy](https://sizzy.co/)를 통한 다양한 디바이스 Responsive view 확인**
 
   Sizzy는 웹 페이지를 원하는 디바이스 별로 볼 수 있게하는 프로그램입니다.
 
@@ -246,7 +277,7 @@ AWS_S3_IMAGE_BUCKET_NAME=<YOUR_S3_BUCKET_NAME>
 
 ![sizzy](./asset/sizzy.png)
 
-
+<br>
 
 ## 3. 커스터마이징 지역
 
@@ -258,9 +289,13 @@ AWS_S3_IMAGE_BUCKET_NAME=<YOUR_S3_BUCKET_NAME>
 
   [GeoJson Polygon Map](https://ha-young.github.io/GeoJsonPolygonGenerator/)
 
+  ![geoJson_Polygon_Generator](./asset/geoJson_Polygon_Generator.png)
+
+<br>
+
 # 🚀 도전했던 기술과 어려웠던 점
 
-<img src="/Users/hychoi/Documents/project2/memona-frontend/asset/challenges.png" alt="도전" style="zoom: 25%;" />
+<center><img src="./asset/challenges.png" alt="challenge" width="500" /></center>
 
 ## 1. GraphQL
 
@@ -282,6 +317,8 @@ Apollo-Client 같은 경우는 별도의 전역상태 상태관리를 할 수 �
 
 query를 처리하는 hook의 사용법도 너무 편리했었으나 단점으로는 GraphQL query를 여러번 사용해야 하는 경우(Infinity scroll)에는 별도 방법을 사용해야 하고(fetchMore) 캐싱 정책도 정해주는 등의 번거로움이 조금 있었습니다.
 
+<br>
+
 ## 2. 위치기반
 
 [Geospatial Queries - MongoDB Manual](https://docs.mongodb.com/manual/geospatial-queries/)
@@ -295,6 +332,8 @@ query를 처리하는 hook의 사용법도 너무 편리했었으나 단점으�
 geoJson 형태로 데이터를 만드는건 쉬웠으나 정교하게 데이터를 생성하고 빠른 생성이 어려워서 커스터마이징 지역이 아닌 곳은 kakao API를 사용하여 행정구역의 가장 작은 단위로 가져올 수 있도록 처리하였습니다.
 
 이를 통해 쉽고 효율적으로 커스텀 지역을 만들 수 있었으며, 지도 API를 React와 함께 사용하는 경험을 할 수 있었습니다.
+
+<br>
 
 ## 3. PWA
 
@@ -315,11 +354,11 @@ manifest, 정적데이터 캐싱은 workBox를 사용하여 쉽게 구현할 수
 
 데이터 전송 Sync는 위의 networkFirst전략이 실패하고 캐싱처리된 값도 없을 때, workBox의 `workbox-background-sync` 의 `Queue` 에 request를 넣어서 network상태가 되었을 때 자동으로 `Queue` 에 있는 request 요청을 보내 Sync를 맞추도록 하였습니다.
 
-![이미지 업로드오프라인 싱크](./asset/offlineSync.png)
+![Project Name](./asset/offlineSync.png)
 
-> 위 영상은 오프라인 상태에서 4개의 포스트를 올린 후 다시 온라인 전환시 올렸던 4개의 포스트가 다시 전송되는 것을 보여주고 있습니다. 
+> 위 영상은 오프라인 상태에서 4개의 포스트를 올린 후 다시 온라인 전환시 올렸던 4개의 포스트가 다시 전송되는 것을 보여주고 있습니다.  <우측 개발자 도구 Network 탭 확인>
 
-
+<br>
 
 ## 4. AR
 
@@ -343,7 +382,7 @@ WebXR AR모드 자체에서 캡처기능을 제공하지 않고, AR모드 내부
 
    이 방법은 도중에 시간소모가 너무 큰 것같아 중단하였지만 이후에 시도해보려고 합니다.
 
-
+<br>
 
 # 🛠 서브 프로젝트
 
@@ -376,21 +415,21 @@ WebXR AR모드 자체에서 캡처기능을 제공하지 않고, AR모드 내부
 
 링크: https://github.com/Ha-Young/GeoJsonPolygonGenerator
 
-
+<br>
 
 # 🎇 마무리하며...
 
 프론트엔드 개발자가 되어야겠다고 마음먹은 지가 이제 근 1년이 다 되어갑니다. 본격적으로 시작한 것은 작년 10월 바닐라코딩과 만나면서부터인 것 같은데 참 시간이 빠르네요.
 
-저는 C++, C#을 활용해서 Windows Application 앱을 만드는 개발자였습니다. 이 일은 학창 시절 Android Application을 주로 개발하고 창업에까지 도전했었던 저에게는 매우 따분한 일이었고, 예전의 창업에 도전했을 때의 열정과 그 문화를 다시금 느껴보고 싶었습니다. 특히 회사와 함께 성장하는 기분들 다시한번 느껴보고 싶었습니다.
+저는 C++, C#을 활용해서 Windows Application 앱을 만드는 개발자였습니다. 이 일은 학창 시절 Android Application을 주로 개발하고 창업에까지 도전했었던 저에게는 매우 따분한 일이었고, 예전의 창업에 도전했을 때의 열정과 그 문화를 다시금 느껴보고 싶었습니다. 특히 회사와 함께 성장하는 기분들 다시 한번 느껴보고 싶었습니다.
 
-그렇게 개발업계를 바꿔야겠다고 마음을 먹고, 다양한 공부를 하던 중 프론트엔드에 매료되어 프론트엔드 개발자가 되기로 마음먹어 지금 이렇게 서 있게 되었습니다. 이렇게 달려오는 동안 프론트엔드에 대한 열정은 식지 않았고 오히려 더 커진 것 같습니다.
+그렇게 개발업계를 바꿔야겠다고 마음을 먹고, 다양한 공부를 하던 중 프론트엔드에 매료되어 프론트엔드 개발자가 되기로 마음먹어 지금 이렇게 서 있게 되었습니다. 달려오는 동안 프론트엔드에 대한 열정은 식지 않았고 오히려 더 커진 것 같습니다.
 
-처음 바닐라코딩을 등록하던 날을 기억합니다. 전공자에 개발 경험까지 있던 제가 바닐라코딩을 선택한 이유는 오로지 빠르게 웹 개발 실력을 올리고 싶었기 때문입니다. 지금 돌이켜보면 정말 잘 한 결정 같습니다. 등록 전후를 비교하자면, 전보다 개발능력도 향상된 것은 둘 제치고 백엔드 개발에도 흥미를 붙였다는 것입니다.
+처음 바닐라코딩을 등록하던 날을 기억합니다. 전공자에 개발 경험까지 있던 제가 바닐라코딩을 선택한 이유는 오로지 빠르게 웹 개발 실력을 올리고 싶었기 때문입니다. 돌이켜보면 정말 잘 한 결정 같습니다. 등록 전후를 비교하자면, 전보다 개발능력도 향상된 것은 둘째 치고 백엔드 개발에도 흥미를 붙였다는 것입니다.
 
 이제는 웹 개발이 좋습니다. Javascript와 Node.JS를 이용한 프론트, 백엔드 모든 개발이 좋습니다.
 
 이 프로젝트는 제가 프론트엔드로 왜 오고 싶어 했는지, 왜 프론트엔드가 미래라고 생각했는지 잘 보여준다고 생각합니다.
 
-이 프로젝트로 개발에 대한 저의 열정을 느껴주시기를 바랍니다.
+이 프로젝트로 웹 개발에 대한 저의 열정을 마음껏 느껴주시기를 바랍니다.
 

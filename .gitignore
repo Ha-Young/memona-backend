@@ -18,6 +18,7 @@
 /node_modules
 
 /.data
+.DS_Store
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
