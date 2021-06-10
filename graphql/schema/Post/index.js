@@ -1,6 +1,7 @@
 const { gql } = require("apollo-server");
 
 const typeDefs = gql`
+  "post data"
   type Post {
     _id: ID!
     author: User
@@ -15,6 +16,7 @@ const typeDefs = gql`
     # likes: [Like]
   }
 
+  "Input data required to create post"
   input PostInput {
     author: ID!
     content: String
@@ -25,11 +27,13 @@ const typeDefs = gql`
     year: String!
   }
 
+  "PointGeoJson is A geojson value that type is point."
   type PointGeoJson {
     type: String
     coordinates: [Float]
   }
 
+  "Input data to receive PointGeoJson as input"
   input PointGeoJsonInput {
     type: String
     coordinates: [Float]
